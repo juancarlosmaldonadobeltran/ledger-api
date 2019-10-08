@@ -1,3 +1,5 @@
+[![](https://img.shields.io/travis/perwendel/spark.svg)](https://travis-ci.org/juancarlosmaldonadobeltran/ledger-api)
+
 # Ledger API
 
 A simple and lightweight REST API for money transfers between accounts.
