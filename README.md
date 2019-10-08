@@ -2,10 +2,10 @@
 
 A simple and lightweight REST API for money transfers between accounts.
 
-## Prerequisites:
+## Prerequisites
 * [OpenJKD 8](https://adoptopenjdk.net/)
 
-## Dependencies:
+## Dependencies
 * [Spark Java](https://github.com/perwendel/spark)
 * [Guice](https://github.com/google/guice)
 * [SLF4J](https://github.com/qos-ch/slf4j)
@@ -17,17 +17,31 @@ A simple and lightweight REST API for money transfers between accounts.
 * [Maven](https://maven.apache.org/)
 * [Maven Wrapper](https://github.com/takari/maven-wrapper)
 
-## Running the tests:
+## Running the tests
 
 ```./mvnw clean install``` 
 
-## Running the application: 
+## Running the application
 
 ```./mvnw```
 
 Then navigate to http://localhost:4567/ping in your browser.
 
-## Endpoints:
+## Routes
+
+### 1. Create account
+
+#### Request:
 
 
+```json
+POST /api/accounts
+10.00
+```
+
+#### Response:
+
+```json
+{"status":"SUCCESS","data":{"id":"1e2f6f81-f9b6-4add-8d61-8214d8ae1237","balance":10.00}}
+```
 
