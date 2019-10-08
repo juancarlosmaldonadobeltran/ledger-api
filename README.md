@@ -33,7 +33,6 @@ Then navigate to http://localhost:4567/ping in your browser.
 
 #### Request:
 
-
 ```json
 POST /api/accounts
 {
@@ -43,11 +42,78 @@ POST /api/accounts
 
 #### Response:
 
+Status code: 201 Created
+
 ```json
 {
-  "status":"SUCCESS",
-  "data":{"id": "1e2f6f81-f9b6-4add-8d61-8214d8ae1237",
-          "balance": 10.00}
+  "status": "SUCCESS",
+  "data": {
+           "id": "8fd7029e-8bda-48cd-b325-f7d9f610b5a8",
+           "balance": 10.00
+          }
+}
+```
+
+#### Headers:
+Location : /api/accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
+
+
+### 2. Get account by id
+
+#### Request:
+
+```json
+GET /accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
+```
+
+#### Response
+
+Status code: 200 OK
+
+```json
+{  
+ "status": "SUCCESS",
+ "data": {
+          "id": "8fd7029e-8bda-48cd-b325-f7d9f610b5a8",
+          "balance" :10.00
+         }
+}
+```
+
+#### Possible errors
+
+Status code: 404 NotFound
+
+```json
+{
+ "status": "ERROR", 
+ "message":"Account not found"
+}
+```
+
+### 3. Get all accounts
+
+#### Request:
+
+```json
+GET /accounts
+```
+
+#### Response:
+
+Status code: 200 OK
+```json
+{
+ "status": "SUCCESS",
+ "data":[
+         {"id": "8fd7029e-8bda-48cd-b325-f7d9f610b5a8",
+          "balance": 10.00
+         },
+         {
+          "id": "d7634ad9-2c54-4578-815d-c958799d3042",
+          "balance": 5.00
+         }
+        ]
 }
 ```
 
