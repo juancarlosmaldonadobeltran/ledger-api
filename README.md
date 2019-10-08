@@ -36,12 +36,18 @@ Then navigate to http://localhost:4567/ping in your browser.
 
 ```json
 POST /api/accounts
-10.00
+{
+  "balance": 10.00
+}
 ```
 
 #### Response:
 
 ```json
-{"status":"SUCCESS","data":{"id":"1e2f6f81-f9b6-4add-8d61-8214d8ae1237","balance":10.00}}
+{
+  "status":"SUCCESS",
+  "data":{"id": "1e2f6f81-f9b6-4add-8d61-8214d8ae1237",
+          "balance": 10.00}
+}
 ```
 
