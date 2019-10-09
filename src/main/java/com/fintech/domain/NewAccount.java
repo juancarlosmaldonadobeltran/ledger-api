@@ -2,6 +2,7 @@ package com.fintech.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.NonNull;
 
 import java.math.BigDecimal;
 
@@ -9,6 +10,7 @@ import java.math.BigDecimal;
 @Builder
 public class NewAccount {
 
+    @NonNull
     private BigDecimal balance;
 
 }
