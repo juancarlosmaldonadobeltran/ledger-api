@@ -35,8 +35,9 @@ Then navigate to http://localhost:4567/ping in your browser.
 
 #### Request:
 
-```json
 POST /api/accounts
+
+```json
 {
   "balance": 10.00
 }
@@ -64,7 +65,7 @@ Location : /api/accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
 
 #### Request:
 
-GET /accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
+GET /api/accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
 
 #### Response:
 
@@ -82,7 +83,7 @@ Status code: 200 OK
 
 #### Possible errors:
 
-Status code: 404 NotFound
+Status code: 404 Not Found
 
 ```json
 {
@@ -95,7 +96,7 @@ Status code: 404 NotFound
 
 #### Request:
 
-GET /accounts
+GET /api/accounts
 
 #### Response:
 
