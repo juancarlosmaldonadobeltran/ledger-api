@@ -1,4 +1,4 @@
-[![](https://img.shields.io/travis/perwendel/spark.svg)](https://travis-ci.org/juancarlosmaldonadobeltran/ledger-api)
+[![](https://travis-ci.org/juancarlosmaldonadobeltran/ledger-api.svg)](https://travis-ci.org/juancarlosmaldonadobeltran/ledger-api)
 
 # Ledger API
 
