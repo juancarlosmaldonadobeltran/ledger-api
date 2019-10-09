@@ -147,7 +147,7 @@ Status code: 200 OK
 
 #### Request:
 
-POSt /api/transfers
+POST /api/transfers
 
 ```json
 {
