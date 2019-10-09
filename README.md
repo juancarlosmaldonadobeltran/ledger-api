@@ -64,11 +64,9 @@ Location : /api/accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
 
 #### Request:
 
-```json
 GET /accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8
-```
 
-#### Response
+#### Response:
 
 Status code: 200 OK
 
@@ -82,7 +80,7 @@ Status code: 200 OK
 }
 ```
 
-#### Possible errors
+#### Possible errors:
 
 Status code: 404 NotFound
 
@@ -97,13 +95,12 @@ Status code: 404 NotFound
 
 #### Request:
 
-```json
 GET /accounts
-```
 
 #### Response:
 
 Status code: 200 OK
+
 ```json
 {
  "status": "SUCCESS",
@@ -116,6 +113,67 @@ Status code: 200 OK
           "balance": 5.00
          }
         ]
+}
+```
+
+### 4. Deposit
+
+#### Request:
+
+POST /api/accounts/8fd7029e-8bda-48cd-b325-f7d9f610b5a8/deposit
+
+```json
+{
+ "amount": 5.00
+}
+```
+
+#### Response:
+
+Status code: 200 OK
+
+```json
+{
+ "status": "SUCCESS",
+ "data": {
+          "id": "8fd7029e-8bda-48cd-b325-f7d9f610b5a8",
+          "balance":15.00
+         }
+}
+```
+
+### 5. Transfer
+
+#### Request:
+
+POSt /api/transfers
+
+```json
+{
+ "source": "8fd7029e-8bda-48cd-b325-f7d9f610b5a8", 
+ "destination": "d7634ad9-2c54-4578-815d-c958799d3042", 
+ "amount": 2.00
+}
+```
+
+#### Response:
+
+Status code: 200 OK
+
+```json
+{
+ "status": "SUCCESS"
+}
+```
+
+#### Possible errors:
+
+Status code: 400 Bad Request
+
+```json
+{
+ "status": "ERROR", 
+ "message":"Insufficient founds"
 }
 ```
 
