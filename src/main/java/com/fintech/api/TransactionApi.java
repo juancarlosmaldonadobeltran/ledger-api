@@ -2,13 +2,13 @@ package com.fintech.api;
 
 import com.fintech.common.ApiResponse;
 import com.fintech.common.JsonTransformer;
+import com.fintech.domain.Deposit;
 import com.fintech.domain.Transfer;
 import com.fintech.service.TransactionService;
 import com.google.inject.Inject;
 
-import java.math.BigDecimal;
-
-import static spark.Spark.*;
+import static spark.Spark.path;
+import static spark.Spark.post;
 
 public class TransactionApi implements Api {
 
@@ -35,8 +35,8 @@ public class TransactionApi implements Api {
             }, transformer);
 
             post("/accounts/:id/deposit", (req, res) -> {
-                BigDecimal amount = transformer.fromJson(req.body(), BigDecimal.class);
-                return ApiResponse.success(transformer.toJsonTree(transactionService.deposit(req.params(":id"), amount)));
+                Deposit deposit = transformer.fromJson(req.body(), Deposit.class);
+                return ApiResponse.success(transformer.toJsonTree(transactionService.deposit(req.params(":id"), deposit.getAmount())));
             }, transformer);
 
         });

@@ -1,6 +1,7 @@
 package com.fintech.api;
 
 import com.fintech.domain.Account;
+import com.fintech.domain.NewAccount;
 import com.fintech.service.AccountService;
 import com.fintech.service.SimpleAccountService;
 import com.fintech.util.IntegrationTest;
@@ -38,7 +39,7 @@ public class AccountApiIT extends IntegrationTest {
         BigDecimal expectedBalance = BigDecimal.ZERO;
         // when
         String path = "/api/accounts";
-        TestResponse res = testUtil.post(path, transformer.render(expectedBalance));
+        TestResponse res = testUtil.post(path, transformer.render(NewAccount.builder().balance(expectedBalance).build()));
         // then
         assertEquals(HttpStatus.CREATED_201, res.getStatusCode());
         assertEquals(StatusResponse.SUCCESS, res.getBody().getStatus());

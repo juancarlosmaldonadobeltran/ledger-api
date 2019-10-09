@@ -1,6 +1,7 @@
 package com.fintech.api;
 
 import com.fintech.domain.Account;
+import com.fintech.domain.Deposit;
 import com.fintech.domain.Transfer;
 import com.fintech.service.AccountService;
 import com.fintech.service.SimpleAccountService;
@@ -40,7 +41,7 @@ public class TransactionApiIT extends IntegrationTest {
         Account accountBefore = accountService.addAccount(BigDecimal.ZERO);
         // when
         String path = "/api/accounts/" + accountBefore.getId() + "/deposit";
-        TestResponse res = testUtil.post(path, transformer.render(amount));
+        TestResponse res = testUtil.post(path, transformer.render(Deposit.builder().amount(amount).build()));
         // then
         assertEquals(HttpStatus.OK_200, res.getStatusCode());
         assertEquals(StatusResponse.SUCCESS, res.getBody().getStatus());
@@ -50,7 +51,7 @@ public class TransactionApiIT extends IntegrationTest {
     }
 
     @Test
-    public void createTransfer() throws IOException {
+    public void transfer() throws IOException {
         // given
         BigDecimal amount = BigDecimal.ONE;
         Account sourceBefore = accountService.addAccount(amount);

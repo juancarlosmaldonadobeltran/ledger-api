@@ -3,6 +3,7 @@ package com.fintech.api;
 import com.fintech.common.ApiResponse;
 import com.fintech.common.JsonTransformer;
 import com.fintech.domain.Account;
+import com.fintech.domain.NewAccount;
 import com.fintech.service.AccountService;
 import com.google.inject.Inject;
 
@@ -29,7 +30,8 @@ public class AccountApi implements Api {
         path("/api", () -> {
 
             post("/accounts", (req, res) -> {
-                BigDecimal amount = transformer.fromJson(req.body(), BigDecimal.class);
+                NewAccount newAccount = transformer.fromJson(req.body(), NewAccount.class);
+                BigDecimal amount = newAccount.getBalance();
                 res.status(201);
                 Account account = accountService.addAccount(amount);
                 res.header("Location", "/api/accounts/" + account.getId());
